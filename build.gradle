@@ -6,17 +6,17 @@ plugins {
     id 'idea'
 
     id 'maven-publish'
-    id 'com.gradle.plugin-publish' version '0.9.7'
+    id 'com.gradle.plugin-publish' version '0.15.0'
 
-    id 'net.minecrell.licenser' version '0.3'
+    //id 'net.minecrell.licenser' version '0.4.1'
 }
 
 group = 'net.minecrell'
-version = '2.2-7-SNAPSHOT'
+version = '3.0.0-SNAPSHOT'
 description = 'ForgeGradle 2 extension for Vanilla mods'
 
-sourceCompatibility = '1.6'
-targetCompatibility = '1.6'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
 
 archivesBaseName = project.name.toLowerCase()
 
@@ -24,19 +24,19 @@ repositories {
     jcenter()
     maven {
         name = 'forge'
-        url = 'http://files.minecraftforge.net/maven'
+        url = 'https://files.minecraftforge.net/maven'
     }
 }
 
 dependencies {
-    compile localGroovy()
+    implementation localGroovy()
     compileOnly 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
 }
 
-license {
-    include '**/*.java'
-    include '**/*.groovy'
-}
+//license {
+//    include '**/*.java'
+//    include '**/*.groovy'
+//}
 
 task sourceJar(type: Jar) {
     classifier = 'sources'
@@ -91,6 +91,6 @@ publishing {
     }
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.3'
+wrapper {
+    gradleVersion = '7.1.1'
 }
